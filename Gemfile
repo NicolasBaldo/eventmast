@@ -2,6 +2,14 @@ source "https://rubygems.org"
 
 ruby "3.2.2"
 
+#gem 'letter_opener'
+
+
+gem 'mailjet'
+
+
+
+gem 'dotenv-rails'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3"
 

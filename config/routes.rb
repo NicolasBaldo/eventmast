@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
   resources :participations
   resources :events
   resources :users
@@ -11,3 +12,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 end
+Rails.application.routes.draw do
+  get 'welcome/index'
+  root 'welcome#index'  # Définit la racine de l'application sur la page d'accueil
+  resources :participations
+  resources :events
+  resources :users
+end
+

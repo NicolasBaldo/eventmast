@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  after_create :welcome_send
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
@@ -25,6 +26,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        # Envoie de l'e-mail de bienvenue après la création de l'utilisateur
+        UserMailer.welcome_email(@user).deliver_now
+        
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
@@ -65,6 +69,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:email, :encrypted_password, :descritpion, :first_name, :last_name)
+      params.require(:user).permit(:email, :encrypted_password, :descritption, :first_name, :last_name)
     end
+    
 end

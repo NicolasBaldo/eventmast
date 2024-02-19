@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[7.1]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       
-      t.text :descritpion
+      t.text :descritption
       t.string :first_name
       t.string :last_name
 
