@@ -1,7 +1,7 @@
 
 Mailjet.configure do |config|
-  config.api_key = 'MAILJET_LOGIN'
-  config.secret_key = 'MAILJET_PWD'
+  config.api_key = ENV['MAILJET_LOGIN']
+  config.secret_key = ENV['MAILJET_PWD']
   config.default_from = 'nicolaszissou75@hotmail.com'
   # Mailjet API v3.1 is at the moment limited to Send API.
   # We’ve not set the version to it directly since there is no other endpoint in that version.
