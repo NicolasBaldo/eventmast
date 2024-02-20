@@ -74,15 +74,6 @@ Rails.application.configure do
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
 
-  ActionMailer::Base.smtp_settings = {
-    :user_name => ENV['MAILJET_LOGIN'],
-    :password => ENV['MAILJET_PWD'],
-    :domain => 'aerodynamic-woodpecker-f3khog7v7u7bx3nw660k2zs6.herokudns.com',
-    :address => 'in-v3.mailjet.com',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
   config.action_mailer.delivery_method = :mailjet_api
   config.action_mailer.mailjet_settings = {
     api_key: ENV['MAILJET_LOGIN'],
