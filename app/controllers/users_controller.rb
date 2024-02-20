@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-
-  
+  after_action :welcome_send
+  before_action :set_user, only: %i[ show edit update destroy ]
 
   def index
     @users = User.all
