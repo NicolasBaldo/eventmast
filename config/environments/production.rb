@@ -88,10 +88,10 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.delivery_method = :mailjet_api
-config.action_mailer.mailjet_settings = {
-  api_key: ENV['MAILJET_LOGIN']
-  secret_key: ENV['MAILJET_PWD']
-  default_from: ENV['MAILJET.DEFAULT_FROM'] 
-}
+  config.action_mailer.mailjet_settings = {
+    api_key: ENV['MAILJET_LOGIN'],
+    secret_key: ENV['MAILJET_PWD'],
+    default_from: ENV['MAILJET_DEFAULT_FROM'] 
+  }
   
 end
