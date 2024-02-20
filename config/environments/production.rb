@@ -87,7 +87,11 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.delivery_method = :mailjet
-  config.action_mailer.mailjet_settings = Rails.application.credentials.mailjet
+  config.action_mailer.delivery_method = :mailjet_api
+config.action_mailer.mailjet_settings = {
+  api_key: 'MAILJET_LOGIN',
+  secret_key: 'MAILJET_PWD',
+  default_from: 'nicolaszissou75@hotmail.com' # Adresse e-mail par défaut
+}
   
 end

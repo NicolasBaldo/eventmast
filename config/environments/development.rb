@@ -85,8 +85,8 @@ Rails.application.configure do
   }
   config.action_mailer.delivery_method = :mailjet_api
   config.action_mailer.mailjet_settings = {
-    api_key: ENV['cab440cc596ef841212ee34cbb2acfdb'],
-    secret_key: ENV['4d17b084e72bbfea2d7d853d8fad5a73']
+    api_key: ENV['MAILJET_LOGIN'],
+    secret_key: ENV['MAILJET_PWD']
   }
   
 end
