@@ -89,4 +89,6 @@ Rails.application.configure do
     secret_key: ENV['MAILJET_PWD']
   }
   
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
