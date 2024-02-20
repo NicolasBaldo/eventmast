@@ -1,32 +1,26 @@
 class UsersController < ApplicationController
-  after_create :welcome_send
-  before_action :set_user, only: %i[ show edit update destroy ]
 
-  # GET /users or /users.json
+  
+
   def index
     @users = User.all
   end
 
-  # GET /users/1 or /users/1.json
   def show
   end
 
-  # GET /users/new
   def new
     @user = User.new
   end
 
-  # GET /users/1/edit
   def edit
   end
 
-  # POST /users or /users.json
   def create
     @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
-        # Envoie de l'e-mail de bienvenue après la création de l'utilisateur
         UserMailer.welcome_email(@user).deliver_now
         
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
@@ -38,7 +32,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1 or /users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
@@ -51,7 +44,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1 or /users/1.json
   def destroy
     @user.destroy!
 
@@ -62,14 +54,13 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_user
       @user = User.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:email, :encrypted_password, :descritption, :first_name, :last_name)
+      params.require(:user).permit(:email, :encrypted_password, :description, :first_name, :last_name)
     end
     
 end

@@ -16,7 +16,10 @@ module Eventmast
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w(assets tasks))
 
-    config.action_mailer.default_options = { from: '' }
-
+    config.action_mailer.mailjet_settings = {
+      api_key: 'cab440cc596ef841212ee34cbb2acfdb',
+      secret_key: '4d17b084e72bbfea2d7d853d8fad5a73'
+    }
+    
   end
 end
