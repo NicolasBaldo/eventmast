@@ -89,9 +89,9 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :mailjet_api
 config.action_mailer.mailjet_settings = {
-  api_key: 'MAILJET_LOGIN',
-  secret_key: 'MAILJET_PWD',
-  default_from: 'nicolaszissou75@hotmail.com' # Adresse e-mail par défaut
+  api_key: ENV['MAILJET_LOGIN']
+  secret_key: ENV['MAILJET_PWD']
+  default_from: ENV['MAILJET.DEFAULT_FROM'] 
 }
   
 end
